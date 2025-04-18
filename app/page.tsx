@@ -33,16 +33,35 @@ export default function Home() {
   return(
     <main className='container'>
   
-      <h1>GIF Search</h1>
+      <h1>Pixel Parade</h1>
+      <p className="page-description">
+        Discover and share the best GIFs to express every emotion!
+      </p>
+
       <div className="controls">
         <SearchBar onSearch={onSearch} />
         <LanguageSelector lang={lang} onLanguageChange={setLang} />
       </div>
 
-      {loading && <p>Loading...</p>}
+      {/* Loading */}
+      {loading && <p className="text-center text-2xl">Loading...</p>}
+
+      {/* Error */}
+       {error && <p className="error">{error}</p>}
+
+       {/* GIFs */}
       {error && <p className="error">{error}</p>}
        {gifs.length > 0 && (
         <GifGrid gifs={gifs} />
+      )}
+
+      {/* Empty State */}
+      {!gifs.length && !loading && (
+        <p className="text-center text-2xl" >
+          What are you in the mood for today? 
+          <br />
+          Enter a search term above and let the GIFs do the talking!
+        </p>
       )}
     </main>
   )

@@ -1,4 +1,3 @@
-// app/components/GifItem.tsx
 'use client';
 import type { Gif } from '../lib/giphy.types';
 

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -22,20 +23,29 @@
 body {
   margin: 0;
   font-family: 'Helvetica Neue', Arial, sans-serif;
-  background: #f0f2f5;
-  color: #333;
+  background: #2d2d2d;
+  color: #dfdfdf;
 }
 
 .container {
   max-width: 960px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 2rem;
+  margin-top: 2rem;;
 }
 
 h1 {
+  font-family: 'Cherry Bomb One', cursive;
   text-align: center;
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  font-size: 4rem;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.page-description {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #bbb;
 }
 
 .controls {
@@ -43,7 +53,8 @@ h1 {
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 6rem;
+  margin-top: 2rem;
 }
 
 .search-bar {
@@ -56,10 +67,12 @@ h1 {
   flex: 1;
   padding: 10px 12px;
   font-size: 1rem;
-  border: 1px solid #ccc;
+  border: 1px solid #000000;
   border-radius: 4px 0 0 4px;
   outline: none;
   transition: border-color 0.2s;
+  background: #c5c5c5;
+  color: #000000;
 }
 
 .search-bar input:focus {
@@ -104,7 +117,7 @@ h1 {
   position: relative;
   overflow: hidden;
   border-radius: 8px;
-  background: #fff;
+  background: #434343;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
 }
