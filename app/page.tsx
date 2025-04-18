@@ -4,12 +4,14 @@ import { useState } from 'react';
 import SearchBar from './components/SearchBar';
 import {fetchGifs} from './lib/giphy';
 import { Gif } from './lib/giphy.types';
+import LanguageSelector from './components/LanguageSelector';
 
 export default function Home() {
   const [gifs, setGifs] = useState<Gif[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [lang , setLang] = useState('en');
+
 
   const onSearch = async (query: string) => {
     setLoading(true);
@@ -29,10 +31,12 @@ export default function Home() {
 
   return(
     <main>
+      {lang}
       <h1>GIF Search</h1>
       <SearchBar onSearch={onSearch} />
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
+      <LanguageSelector onLanguageChange={setLang} lang={lang} />
       {gifs.length > 0 && (
         <div>
           {gifs.map(gif => (
