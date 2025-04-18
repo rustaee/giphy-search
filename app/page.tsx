@@ -5,6 +5,7 @@ import SearchBar from './components/SearchBar';
 import {fetchGifs} from './lib/giphy';
 import { Gif } from './lib/giphy.types';
 import LanguageSelector from './components/LanguageSelector';
+import GifGrid from './components/GifGrid';
 
 export default function Home() {
   const [gifs, setGifs] = useState<Gif[]>([]);
@@ -30,20 +31,18 @@ export default function Home() {
   }
 
   return(
-    <main>
-      {lang}
+    <main className='container'>
+  
       <h1>GIF Search</h1>
-      <SearchBar onSearch={onSearch} />
+      <div className="controls">
+        <SearchBar onSearch={onSearch} />
+        <LanguageSelector lang={lang} onLanguageChange={setLang} />
+      </div>
+
       {loading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
-      <LanguageSelector onLanguageChange={setLang} lang={lang} />
-      {gifs.length > 0 && (
-        <div>
-          {gifs.map(gif => (
-          
-            <img key={gif.id} src={gif.images.preview_gif.url} alt={gif.alt_text} />
-          ))}
-        </div>
+      {error && <p className="error">{error}</p>}
+       {gifs.length > 0 && (
+        <GifGrid gifs={gifs} />
       )}
     </main>
   )

@@ -10,7 +10,7 @@ export default function LanguageSelector({ onLanguageChange, lang }: LanguageSel
     };
 
     return (
-        <select value={lang} onChange={handleLanguageChange}>
+        <select value={lang} onChange={handleLanguageChange} className="language-select">
             <option value="en">English</option>
             <option value="es">Spanish</option>
             <option value="fr">French</option>
