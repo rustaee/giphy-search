@@ -3,9 +3,10 @@
 import { useState } from 'react';
 import SearchBar from './components/SearchBar';
 import {fetchGifs} from './lib/giphy';
+import { Gif } from './lib/giphy.types';
 
 export default function Home() {
-  const [gifs, setGifs] = useState<string[]>([]);
+  const [gifs, setGifs] = useState<Gif[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [lang , setLang] = useState('en');
@@ -34,8 +35,9 @@ export default function Home() {
       {error && <p>{error}</p>}
       {gifs.length > 0 && (
         <div>
-          {gifs.map((gif, index) => (
-            <img key={index} src={gif.url} alt={`GIF ${index + 1}`} />
+          {gifs.map(gif => (
+          
+            <img key={gif.id} src={gif.images.preview_gif.url} alt={gif.alt_text} />
           ))}
         </div>
       )}

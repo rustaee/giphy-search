@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Gif } from './giphy.types';
 
 const API_KEY = process.env.NEXT_PUBLIC_GIPHY_API_KEY;
 const BASE_URL = 'https://api.giphy.com/v1/gifs/search';
