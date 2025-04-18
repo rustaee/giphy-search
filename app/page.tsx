@@ -24,12 +24,13 @@ export default function Home() {
      
       setGifs(response)
     } catch  {
-      setError('Failed to fetch gifs');
+      setError('Failed to fetch the gifs');
     } finally {
       setLoading(false);
     }
   }
 
+  
   return(
     <main className='container'>
   
@@ -47,16 +48,19 @@ export default function Home() {
       {loading && <p className="text-center text-2xl">Loading...</p>}
 
       {/* Error */}
-       {error && <p className="error">{error}</p>}
+       {error && <p className='text-center text-xl'>
+          Oops! Something went wrong:
+          <br />
+          <span className="error">{error}</span> 
+        </p>}
 
        {/* GIFs */}
-      {error && <p className="error">{error}</p>}
        {gifs.length > 0 && (
         <GifGrid gifs={gifs} />
       )}
 
       {/* Empty State */}
-      {!gifs.length && !loading && (
+      {!gifs.length && !loading && !error && (
         <p className="text-center text-2xl" >
           What are you in the mood for today? 
           <br />
