@@ -1,7 +1,11 @@
 import axios from 'axios';
 
 const API_KEY = process.env.NEXT_PUBLIC_GIPHY_API_KEY;
-const BASE_URL = 'https://api.giphy.com/';
+const BASE_URL = 'https://api.giphy.com/v1/gifs/search';
+
+if (!API_KEY) {
+  throw new Error('Giphy API key is not defined. Please set NEXT_PUBLIC_GIPHY_API_KEY in your environment variables.');
+}
 
 export async function fetchGifs(query, lang = 'en') {
   const { data } = await axios.get(BASE_URL, {
